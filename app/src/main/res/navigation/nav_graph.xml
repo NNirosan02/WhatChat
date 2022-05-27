@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.nnapps.thatchat.ui.login.MainFragment"
+        android:label="Main Fragment"
+        tools:layout="@layout/main_fragment">
+        <action
+            android:id="@+id/action_firstFragment_to_chatList"
+            app:destination="@id/ChatList"/>
+    </fragment>
+    <fragment
+        android:id="@+id/ChatList"
+        android:name="com.nnapps.thatchat.ui.chatlist.ChatList"
+        android:label="Chat List Fragment"
+        tools:layout="@layout/chat_list_fragment">
+<!--        Make Global Action-->
+        <action
+            android:id="@+id/action_chatList_to_firstFragment"
+            app:destination="@id/FirstFragment"/>
+    </fragment>
+</navigation>

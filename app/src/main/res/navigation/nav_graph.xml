@@ -23,5 +23,17 @@
         <action
             android:id="@+id/action_chatList_to_firstFragment"
             app:destination="@id/FirstFragment"/>
+        <action
+            android:id="@+id/action_chatList_to_chatFragment"
+            app:destination="@id/ChatFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/ChatFragment"
+        android:name="com.nnapps.thatchat.ui.chat.ChatFragment"
+        android:label="Chat Fragment"
+        tools:layout="@layout/chat_fragment">
+        <action
+            android:id="@+id/action_chatFragment_to_chatList"
+            app:destination="@id/ChatList"/>
     </fragment>
 </navigation>

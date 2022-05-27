@@ -42,7 +42,8 @@
                 android:id="@+id/codeScanner_result"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:enabled="false" />
+                android:inputType="text"
+                android:enabled="true" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

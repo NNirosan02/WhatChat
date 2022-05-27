@@ -8,7 +8,8 @@ import com.nnapps.thatchat.databinding.ItemChatUserBinding
 import com.nnapps.thatchat.models.User
 import com.squareup.picasso.Picasso
 
-class UserAdapter(var usersList: MutableList<User>) :
+
+class UserAdapter(var usersList: MutableList<User>, var clickListener: ChatItemClickListener) :
     RecyclerView.Adapter<UserAdapter.ViewHolder>() {
 
 
@@ -20,9 +21,11 @@ class UserAdapter(var usersList: MutableList<User>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentUser = usersList[position]
-        Picasso.get().load(currentUser.profilePic).placeholder(R.drawable.ic_launcher_foreground).into(holder.binding.profileImage)
+        Picasso.get().load(currentUser.profilePic).placeholder(R.drawable.ic_launcher_foreground)
+            .into(holder.binding.profileImage)
         holder.binding.userName.text = currentUser.userName
-
+        holder.binding.user = currentUser
+        holder.binding.chatItemClickListener = clickListener
     }
 
     override fun getItemCount(): Int {
@@ -30,4 +33,8 @@ class UserAdapter(var usersList: MutableList<User>) :
     }
 
     inner class ViewHolder(val binding: ItemChatUserBinding) : RecyclerView.ViewHolder(binding.root)
+
+    interface ChatItemClickListener {
+        fun onChatItemClickListener(user: User)
+    }
 }

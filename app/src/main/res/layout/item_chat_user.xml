@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
+    <data>
+        <variable
+            name="user"
+            type="com.nnapps.thatchat.models.User" />
+    <variable
+        name="chatItemClickListener"
+        type="com.nnapps.thatchat.ui.users.UserAdapter.ChatItemClickListener" />
+    </data>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:onClick="@{() -> chatItemClickListener.onChatItemClickListener(user)}"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">

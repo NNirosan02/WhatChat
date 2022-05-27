@@ -100,10 +100,10 @@ class MainFragment : Fragment() {
     }
 
     private fun storeUser() {
-        val user = User(currentUser!!.photoUrl!!,
-            currentUser!!.displayName!!, currentUser!!.email!!, null, null, null,null)
         val id = currentUser!!.uid
-        database.document(id).set({user}).addOnSuccessListener {
+        val user = User(currentUser!!.photoUrl!!.toString(),
+            currentUser!!.displayName!!, currentUser!!.email!!, currentUser!!.uid, null, null,null)
+        database.document(id).set(user).addOnSuccessListener {
             val navController = findNavController()
             navController.navigate(R.id.action_firstFragment_to_chatList)
         }
